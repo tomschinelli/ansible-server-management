@@ -1,0 +1,10 @@
+---
+- name: OS update
+  hosts: all
+  gather_facts: yes
+  become: true
+  tasks:
+    # https://www.redhat.com/sysadmin/ansible-linux-patch-ansible
+    - name: OS update - all packages or security fixes
+      include_role:
+        name: os_update
