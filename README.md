@@ -6,7 +6,7 @@ All updates:
 ```shell
 ansible-playbook main.yml --extra-vars ev_security_only=no
 ```
-Security updates only:
+(WIP) Security updates only:
 ```shell
 ansible-playbook main.yml --extra-vars ev_security_only=yes
 ```

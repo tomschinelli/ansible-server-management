@@ -8,3 +8,9 @@
     - name: OS update - all packages or security fixes
       include_role:
         name: os_update
+  handlers:
+    - name: Reboot Server
+      reboot:
+        msg: "Reboot initiated by Ansible after OS update"
+        reboot_timeout: 3600
+        test_command: uptime
