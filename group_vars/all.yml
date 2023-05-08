@@ -1,3 +1,4 @@
 users:
   - name: tom
     publicKeyPath: ~/.ssh/id_rsa.pub
+ev_security_only: no
