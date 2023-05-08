@@ -3,12 +3,12 @@
 
 Run complete setup:
 ```shell
-ansible-playbook site.yml -i .production
+ansible-playbook site.yml -i production
 ```
 
 Create users only:
 ```shell
-ansible-playbook site.yml --tags user -i .production
+ansible-playbook site.yml --tags user -i production
 ```
 
 
