@@ -1,12 +1,25 @@
 
 ## Run Playbook
-Note: Ensure all required hosts exists in `/etc/ansible/hosts`
 
-All updates:
+Run complete setup:
 ```shell
-ansible-playbook site.yml --extra-vars ev_security_only=no
+ansible-playbook site.yml -i .production
 ```
-(WIP) Security updates only:
+
+Create users only:
 ```shell
-ansible-playbook site.yml --extra-vars ev_security_only=yes
+ansible-playbook site.yml --tags user -i .production
+```
+
+
+## Configuration
+### Users :older_man:	
+By default, a user `admin` is created with your default ssh public key. 
+You can set up users inside `./host_vars/{hostname}.yml` or `./group_vars/{group_name}.yml`:
+
+```yaml
+# examle: ./group_vars/all.yml
+users:
+  - name: tom
+    publicKeyPath: ~/.ssh/id_rsa.pub
 ```
