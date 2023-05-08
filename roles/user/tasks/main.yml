@@ -1,0 +1,8 @@
+---
+- include_tasks: nopw_sudoers.yml
+  vars:
+    name: "{{ item.name }}"
+    publicKeyPath: "{{ item.publicKeyPath }}"
+  with_items: "{{ users }}"
+
+...

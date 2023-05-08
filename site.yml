@@ -1,0 +1,15 @@
+---
+- name: OS update
+  hosts: all
+  gather_facts: yes
+  become: true
+  roles:
+    - name: user
+      tags:
+        - user
+
+    - name: os_update
+      vars:
+        ev_security_only: no
+      tags:
+        - update
