@@ -1,3 +1,8 @@
+# ansible-server-management
+Collection of useful tasks including:
+- centralized user management
+- server upgrades
+- (ToDo) standard software like monitoring requirements
 
 ## Run Playbook
 
