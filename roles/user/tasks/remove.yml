@@ -1,0 +1,10 @@
+---
+- name: "Delete user"
+  user:
+    name: "{{ name }}"
+    state: absent
+    remove: true
+- name: Removing from /etc/sudoers.d if existing
+  file:
+    path: /etc/sudoers.d/{{ name }}-nopw
+    state: absent

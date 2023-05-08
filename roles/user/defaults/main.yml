@@ -2,3 +2,4 @@
 users:
   - name: admin
     publicKeyPath: ~/.ssh/id_rsa.pub
+remove_users: []

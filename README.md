@@ -27,7 +27,15 @@ You can set up users inside `host_vars/{hostname}.yml` or `group_vars/{group_nam
 users:
   - name: tom
     publicKeyPath: ~/.ssh/id_rsa.pub
+  - name: unwanted_user
+    publicKeyPath: ~/.ssh/id_rsa.pub
+remove_users:
+  - unwanted_user
 ```
+
+**Note:** After removing users, you can remove the username from the `remove_user` list to keep the repo clean.
+
+**Note:** Removing users runs after creating them and therefore ensures that the user is removed. 
 
 ### Upgrades :arrow_up:
 

@@ -1,4 +1,8 @@
 users:
   - name: tom
     publicKeyPath: ~/.ssh/id_rsa.pub
+  - name: unwanted_user
+    publicKeyPath: ~/.ssh/id_rsa.pub
+remove_users:
+  - unwanted_user
 ev_security_only: no

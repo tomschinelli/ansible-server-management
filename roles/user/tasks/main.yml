@@ -1,8 +1,15 @@
+# for more detailed deletion, see https://gist.github.com/trongnghia203/2d720280d74085d2330776274ee2c887
 ---
 - include_tasks: nopw_sudoers.yml
   vars:
     name: "{{ item.name }}"
     publicKeyPath: "{{ item.publicKeyPath }}"
   with_items: "{{ users }}"
+
+# force to override user with delete
+- include_tasks: remove.yml
+  vars:
+    name: "{{ item }}"
+  with_items: "{{ remove_users }}"
 
 ...

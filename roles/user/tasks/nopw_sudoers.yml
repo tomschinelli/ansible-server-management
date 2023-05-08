@@ -2,24 +2,23 @@
 - name: ensure group "nopw_admin" exists
   group:
     name: nopw_admin
-    state: present
+    state: absent
 
-- name: "Create users"
+- name: "Creat users"
   user:
     name: "{{ name }}"
     shell: /usr/bin/bash
-    groups: "nopw_admin"
     state: present
 
-- name: "Add authorized keys"
+- name: "Add public"
   authorized_key:
     user: "{{ name }}"
     key: "{{ lookup('file', publicKeyPath) }}"
 
 
-- name: "Allow sudo users to sudo without a password"
+- name: Allow user to use sudo without password
   lineinfile:
-    dest: "/etc/sudoers" # path: in version 2.3
-    state: "present"
-    regexp: "^%nopw_admin"
-    line: "%nopw_admin ALL=(ALL) NOPASSWD: ALL"
+    path: "/etc/sudoers.d/{{ item.name }}-nopw"
+    regexp: "^{{ item.name }}"
+    line: "{{ item.name }} ALL=(ALL) NOPASSWD:ALL"
+    create: yes
