@@ -24,7 +24,7 @@ users:
     publicKeyPath: ~/.ssh/id_rsa.pub
 ```
 
-### Users :arrow_up:
+### Upgrades :arrow_up:
 
 #### Security patches only (WIP)
 Set `ev_security_only=yes` inside `group_vars/all.yml` or run with the option `-e ev_security_only=yes`
