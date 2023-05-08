@@ -13,7 +13,7 @@ ansible-playbook site.yml --tags user -i production
 
 
 ## Configuration
-### Users :older_man:	
+### Users :busts_in_silhouette:
 By default, a user `admin` is created with your default ssh public key. 
 You can set up users inside `host_vars/{hostname}.yml` or `group_vars/{group_name}.yml`:
 
