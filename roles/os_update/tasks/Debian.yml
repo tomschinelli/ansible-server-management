@@ -5,7 +5,7 @@
 - name: Get packages that can be updated
   command: apt list --upgradable
   register: reg_dnf_output_all
-  when: ev_security_only == "no"
+  when: ev_security_only == false
   changed_when: false
 
 - name: List upgradable packages
@@ -14,12 +14,12 @@
       - 'Listing...'
   debug:
     msg: "{{ reg_dnf_output_all.stdout_lines | difference(first_line) }}"
-  when: ev_security_only == "no"
+  when: ev_security_only == false
 
 - name: Get security updates
   command: apt list --upgradable -o Dir::Etc::SourceList=/etc/apt/security.sources.list
   register: reg_dnf_output_secu
-  when: ev_security_only == "yes"
+  when: ev_security_only == true
   changed_when: false
 
 - name: List upgradable packages
@@ -28,7 +28,7 @@
       - 'Listing...'
   debug:
     msg: "{{ reg_dnf_output_secu.stdout_lines | difference(first_line) }}"
-  when: ev_security_only == "yes"
+  when: ev_security_only == true
 
 ### confirm ###
 
@@ -48,7 +48,7 @@
     autoremove: yes
     force_apt_get: yes
   register: reg_upgrade_ok
-  when: ev_security_only == "no" and reg_dnf_output_all is defined
+  when: ev_security_only == false and reg_dnf_output_all is defined
 
 - name: Print errors if upgrade failed
   debug:
