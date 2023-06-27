@@ -9,3 +9,21 @@
 
     - name: os_update
       tags: [update]
+
+    - name: prometheus
+      tags: [prometheus]
+
+- name: install monitoring stack
+  hosts: monitorserver
+  tags: [monitoring]
+  become: yes
+  roles:
+    - name: prometheus
+
+
+- name: install node-exporter
+  hosts: nodeservers
+  tags: [node_exporter]
+  become: yes
+  roles:
+    - name: node_exporter
