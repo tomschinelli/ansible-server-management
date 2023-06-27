@@ -19,6 +19,8 @@
   become: yes
   roles:
     - name: prometheus
+      vars:
+        prometheus_node_exporter_group: nodeservers
 
 
 - name: install node-exporter
